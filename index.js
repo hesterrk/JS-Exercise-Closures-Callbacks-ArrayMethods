@@ -110,8 +110,8 @@ function processSum(numberList, cb) {
  * [2] Invoking `processProduct` passing 25 and 0 and `(num) => num + 1000`,
  * should return 1000.
 */
-function processProduct(/* CODE HERE */) {
-  /* CODE HERE */
+function processProduct(num1, num2, cb) {
+  // cb(num1 + num2);
 }
 
 /**
@@ -134,8 +134,14 @@ function processProduct(/* CODE HERE */) {
  * "lady gaga" and `['foo', 'bar']` and `(bool) => bool ? 'nice!' : 'sad'`,
  * should return "sad".
 */
-function processContains(/* CODE HERE */) {
-  /* CODE HERE */
+function processContains(item, list, cb) {
+  if(list.includes(item)) {
+    return cb(true)
+  }
+  
+  else {
+    return false;
+  }
 }
 
 /**
@@ -157,8 +163,10 @@ function processContains(/* CODE HERE */) {
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
 */
-function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
-  /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
+function processDuplicateFree(list, cb) {
+  const items = list.filter((item, index) => list.indexOf(item) === index);
+ 
+  return cb(items);
 }
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
