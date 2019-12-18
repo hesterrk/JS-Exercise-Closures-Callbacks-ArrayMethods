@@ -111,7 +111,9 @@ function processSum(numberList, cb) {
  * should return 1000.
 */
 function processProduct(num1, num2, cb) {
-  // cb(num1 + num2);
+
+  return cb(num1 * num2);
+
 }
 
 /**
@@ -165,7 +167,6 @@ function processContains(item, list, cb) {
 */
 function processDuplicateFree(list, cb) {
   const items = list.filter((item, index) => list.indexOf(item) === index);
- 
   return cb(items);
 }
 
