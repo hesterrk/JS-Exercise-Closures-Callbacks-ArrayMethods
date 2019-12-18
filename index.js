@@ -309,17 +309,6 @@ console.log(mycounting());
  * etc
 */
 function counterMakerWithLimit(limit) {
-// let count = 0;
-//  function mycounter (){
-   
-//   if (count >= max) {
-//      return count = 0;
-//   }
-//      return count++;
-  
-// };
-// return mycounter
-
 
 let count = 0;
 function mycounter(){
@@ -330,11 +319,10 @@ return mycounter;
 }
 
 var myCounting = counterMakerWithLimit();
-console.log(myCounting);
+console.log(myCounting());
 
 
-//  let letscount = counterMakerWithLimit();
-//  console.log(letscount());
+
 
 
 /////////////// END OF CHALLENGE ///////////////
