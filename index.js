@@ -221,9 +221,16 @@ return caps;
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
+
+// let runners = [{ id: 1, first_name: "Charmain", last_name: "Seiler", email: "cseiler0@wired.com", shirt_size: "2XL", company_name: "Divanoodle", donation: 75 },
+// { id: 2, first_name: "Whitaker", last_name: "Ierland", email: "wierland1@angelfire.com", shirt_size: "2XL", company_name: "Wordtune", donation: 148 },]
+
 function getRunnersByTShirtSize(runners) {
-  return runners.filter(capital => capital.shirt_size === 'L');
+
+  return runners.filter(capital => capital.shirt_size ===  'S' &&'M' &&'L' &&'XL' && '2XL');
 }
+
+// console.log(getRunnersByTShirtSize(runners, 'S'));
 
 // runners.filter((runner) => runner.shirt_size === 'L' ? runnersLargeSizeShirt.push(runner): false)
 
@@ -239,8 +246,10 @@ function getRunnersByTShirtSize(runners) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
-  /* CODE HERE */
+function tallyUpDonations(runners) {
+ 
+  return runners.reduce((priceTotal, runner) => priceTotal + runner.donation, 0);
+
 }
 
 /////////////// CLOSURES ///////////////
@@ -261,35 +270,16 @@ function tallyUpDonations(/* CODE HERE */) {
 */
 
 
-  const counterMaker = () => {
-    
-  
-  let count = 7
-  console.log(count);
-  
-  let increment = () => {
-    let increaseNumber = ++count
-      return increaseNumber
+
+  function counterMaker() {
+
+  let count = 0;
+  return function counter() {
+    ++count;
+    console.log(count);
+    return count;
     }
-  
-  let decrement = () => {
-    let decreaseNumber = --count
-      return decreaseNumber
-    
-  }
-  
-  let myObject = {increment, decrement}
-  
-  return myObject;
-  
   };
-  
-  var countercounter = counterMaker();
-  
-  console.log(countercounter.increment());
-  console.log(countercounter.decrement());
-
-
 
 
 
@@ -313,8 +303,17 @@ function tallyUpDonations(/* CODE HERE */) {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
-  /* CODE HERE */
+function counterMakerWithLimit() {
+ let count = 0;
+ return function mycounter (){
+   if (count === 3 ) {
+     count++;
+   }else{
+     count = 0;
+   }
+ 
+ }
+
 }
 
 /////////////// END OF CHALLENGE ///////////////
