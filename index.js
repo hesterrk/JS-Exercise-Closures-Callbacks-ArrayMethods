@@ -200,8 +200,6 @@ function getFullNames(runners) {
 
 return newArray;
 }
-// getFullNames(newArray);
-
 
 
 /**
@@ -239,15 +237,10 @@ return caps;
 // let runners = [{ id: 1, first_name: "Charmain", last_name: "Seiler", email: "cseiler0@wired.com", shirt_size: "2XL", company_name: "Divanoodle", donation: 75 },
 // { id: 2, first_name: "Whitaker", last_name: "Ierland", email: "wierland1@angelfire.com", shirt_size: "2XL", company_name: "Wordtune", donation: 148 },]
 
-function getRunnersByTShirtSize(runners) {
+function getRunnersByTShirtSize(runners, tShirtSize) {
 
-  return runners.filter(capital => capital.shirt_size ===  'S' &&'M' &&'L' &&'XL' && '2XL');
+  return runners.filter(capital => capital.shirt_size ===  tShirtSize);
 }
-
-// console.log(getRunnersByTShirtSize(runners, 'S'));
-
-// runners.filter((runner) => runner.shirt_size === 'L' ? runnersLargeSizeShirt.push(runner): false)
-
 
 
 /**
@@ -283,16 +276,10 @@ function tallyUpDonations(runners) {
  * etc
 */
 
-
-
   function counterMaker() {
 
-  let count = 0;
-  return function counter() {
-    ++count;
-    console.log(count);
-    return count;
-    }
+
+  
   };
 
 
