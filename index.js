@@ -308,18 +308,34 @@ console.log(mycounting());
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit() {
- let count = 0;
- return function mycounter (){
-   if (count === 3 ) {
-     count++;
-   }else{
-     count = 0;
-   }
- 
- }
+function counterMakerWithLimit(limit) {
+// let count = 0;
+//  function mycounter (){
+   
+//   if (count >= max) {
+//      return count = 0;
+//   }
+//      return count++;
+  
+// };
+// return mycounter
 
+
+let count = 0;
+function mycounter(){
+  count > limit ? count = 0  : count;
+  return count++;
 }
+return mycounter;
+}
+
+var myCounting = counterMakerWithLimit();
+console.log(myCounting);
+
+
+//  let letscount = counterMakerWithLimit();
+//  console.log(letscount());
+
 
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////
