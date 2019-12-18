@@ -48,8 +48,8 @@ function processFirstItem(stringList, callback) {
  * [2] Invoking `processLength` passing `[]` and `(num) => "There are " + num`,
  * should return "There are 0".
 */
-function processLength(/* CODE HERE */) {
-  /* CODE HERE */
+function processLength(list, cb) {
+  return cb(list.length)
 }
 
 /**
@@ -66,8 +66,8 @@ function processLength(/* CODE HERE */) {
  * Invoking `processLastItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'barbar'.
 */
-function processLastItem(/* CODE HERE */) {
-  /* CODE HERE */
+function processLastItem(stringList, cb) {
+  return cb(stringList[stringList.length-1])
 }
 
 /**
@@ -87,9 +87,10 @@ function processLastItem(/* CODE HERE */) {
  * [2] Invoking `processSum` passing `[]` and `(num) => num + 1000`,
  * should return 1000.
 */
-function processSum(/* CODE HERE */) {
-  /* CODE HERE */
+function processSum(numberList, cb) {  
+  return cb(numberList);  
 }
+
 
 /**
  * ### Challenge `processProduct`
@@ -178,9 +179,16 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
-function getFullNames(/* CODE HERE */) {
-  /* CODE HERE */
+function getFullNames(runners) {
+  let newArray = [];
+  runners.forEach(runner => newArray.push
+    (`${runner.last_name}, ${runner.first_name}`));
+
+return newArray;
 }
+// getFullNames(newArray);
+
+
 
 /**
  * ### Challenge `firstNamesAllCaps`
@@ -194,8 +202,10 @@ function getFullNames(/* CODE HERE */) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(/* CODE HERE */) {
-  /* CODE HERE */
+function firstNamesAllCaps(runners) {
+let caps = [];
+runners.map(capital => caps.push(`${capital.first_name}`.toUpperCase()))
+return caps;
 }
 
 /**
@@ -211,9 +221,13 @@ function firstNamesAllCaps(/* CODE HERE */) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(/* CODE HERE */) {
-  /* CODE HERE */
+function getRunnersByTShirtSize(runners) {
+  return runners.filter(capital => capital.shirt_size === 'L');
 }
+
+// runners.filter((runner) => runner.shirt_size === 'L' ? runnersLargeSizeShirt.push(runner): false)
+
+
 
 /**
  * ### Challenge `tallyUpDonations`
@@ -245,14 +259,39 @@ function tallyUpDonations(/* CODE HERE */) {
  * counter() // should return 2
  * etc
 */
-function counterMaker() {
-  // BROKEN CODE STARTS
-  const count = 0;
-  function counter() {
-    ++count
+
+
+  const counterMaker = () => {
+    
+  
+  let count = 7
+  console.log(count);
+  
+  let increment = () => {
+    let increaseNumber = ++count
+      return increaseNumber
+    }
+  
+  let decrement = () => {
+    let decreaseNumber = --count
+      return decreaseNumber
+    
   }
-  // BROKEN CODE ENDS
-}
+  
+  let myObject = {increment, decrement}
+  
+  return myObject;
+  
+  };
+  
+  var countercounter = counterMaker();
+  
+  console.log(countercounter.increment());
+  console.log(countercounter.decrement());
+
+
+
+
 
 /**
  * ### Challenge `counterMakerWithLimit`
