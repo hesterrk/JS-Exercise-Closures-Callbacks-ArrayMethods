@@ -88,7 +88,12 @@ function processLastItem(stringList, cb) {
  * should return 1000.
 */
 function processSum(numberList, cb) {  
-  return cb(numberList);  
+  var count = 0;
+for(var i = 0; i < numberList.length; i++)
+{
+    count = count + numberList[i];
+}
+  return cb(count);  
 }
 
 
